@@ -12,9 +12,9 @@ LABEL io.k8s.description="Platform for running executable JARs" \
       io.openshift.tags="java,java8"
 
 
-#RUN mkdir -p /opt/app-root
-#RUN chown -R 1001:0 /opt/app-root
-#RUN chmod +rx /opt/app-root
+RUN mkdir -p /opt/app-root
+RUN chown -R 1001:0 /opt/app-root
+RUN chmod +rx /opt/app-root
 
 # Add configuration files
 RUN mkdir -p $STI_SCRIPTS_PATH
