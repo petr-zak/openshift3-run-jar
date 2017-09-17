@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cat <<EOF
+This is a STI Java 8 base image:
+To use it, install STI: https://github.com/openshift/source-to-image
+EOF
