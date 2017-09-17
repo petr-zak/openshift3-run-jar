@@ -21,7 +21,8 @@ RUN mkdir -p /opt/app-root && \
 	chmod +rx ${STI_SCRIPTS_PATH} && \
 	# Fake apk,curl
 	echo "#!/bin/sh" > /sbin/apk && \
-	echo "#!/bin/sh" > /usr/bin/curl
+	echo "#!/bin/sh" > /usr/bin/curl && \
+	chmod +rx /usr/bin/curl
 
 COPY ./s2i/bin/ ${STI_SCRIPTS_PATH}
 RUN chmod +rx ${STI_SCRIPTS_PATH}/*
