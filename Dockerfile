@@ -18,7 +18,9 @@ RUN mkdir -p /opt/app-root && \
 
 	mkdir -p ${STI_SCRIPTS_PATH} && \
 	chown -R 1001:0 ${STI_SCRIPTS_PATH} && \
-	chmod +rx ${STI_SCRIPTS_PATH}
+	chmod +rx ${STI_SCRIPTS_PATH} && \
+	# Fake apk
+	echo "#!/bin/sh" > /sbin/apk
 
 COPY ./s2i/bin/ ${STI_SCRIPTS_PATH}
 RUN chmod +rx ${STI_SCRIPTS_PATH}/*
