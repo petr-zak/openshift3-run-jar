@@ -12,16 +12,15 @@ LABEL io.k8s.description="Platform for running executable JARs" \
       io.openshift.tags="java,java8"
 
 
-RUN mkdir -p /opt/app-root
-RUN chown -R 1001:0 /opt/app-root
-RUN chmod +rx /opt/app-root
+RUN mkdir -p /opt/app-root && \
+	chown -R 1001:0 /opt/app-root && \
+	chmod +rx /opt/app-root && \
 
-# Add configuration files
-RUN mkdir -p $STI_SCRIPTS_PATH
-RUN chown -R 1001:0 $STI_SCRIPTS_PATH
-RUN chmod +rx $STI_SCRIPTS_PATH
+	mkdir -p ${STI_SCRIPTS_PATH} && \
+	chown -R 1001:0 ${STI_SCRIPTS_PATH} && \
+	chmod +rx ${STI_SCRIPTS_PATH}
 
-COPY ./s2i/bin/ $STI_SCRIPTS_PATH
-RUN chmod +rx $STI_SCRIPTS_PATH/*
+COPY ./s2i/bin/ ${STI_SCRIPTS_PATH}
+RUN chmod +rx ${STI_SCRIPTS_PATH}/*
 
 USER 1001
