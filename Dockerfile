@@ -24,7 +24,10 @@ RUN mkdir -p /opt/app-root && \
 	echo "#!/bin/sh" > /usr/bin/curl && \
 	unlink /bin/rm && \
 	echo "#!/bin/sh" > /bin/rm && \
-	chmod +rx /usr/bin/curl /bin/rm
+	chmod +rx /usr/bin/curl /bin/rm && \
+	mkdir -p /etc/profile.d  && \
+	chown -R 1001:0 /etc/profile.d && \
+	chmod +rwx /etc/profile.d
 
 COPY ./s2i/bin/ ${STI_SCRIPTS_PATH}
 RUN chmod +rx ${STI_SCRIPTS_PATH}/*
