@@ -19,6 +19,7 @@ RUN mkdir -p /opt/app-root && \
 	mkdir -p ${STI_SCRIPTS_PATH} && \
 	chown -R 1001:0 ${STI_SCRIPTS_PATH} && \
 	chmod +rx ${STI_SCRIPTS_PATH} && \
+	rm /etc/profile.d/locale.sh
 	# Fake commands to do nothing
 	echo "#!/bin/sh" > /sbin/apk && \
 	echo "#!/bin/sh" > /usr/bin/curl && \
