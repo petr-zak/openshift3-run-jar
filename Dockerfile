@@ -19,9 +19,10 @@ RUN mkdir -p /opt/app-root && \
 	mkdir -p ${STI_SCRIPTS_PATH} && \
 	chown -R 1001:0 ${STI_SCRIPTS_PATH} && \
 	chmod +rx ${STI_SCRIPTS_PATH} && \
-	# Fake apk,curl
+	# Fake commands to do nothing
 	echo "#!/bin/sh" > /sbin/apk && \
 	echo "#!/bin/sh" > /usr/bin/curl && \
+	echo "#!/bin/sh" > /usr/bin/rm && \
 	chmod +rx /usr/bin/curl && \
 	touch /tmp/fake.apk && \
 	chown 1001:0 /tmp/fake.apk && \
