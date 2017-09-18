@@ -24,7 +24,7 @@ RUN mkdir -p /opt/app-root && \
 	echo "#!/bin/sh" > /usr/bin/curl && \
 	echo "#!/bin/sh" > /usr/bin/rm && \
 	chmod +rx /usr/bin/curl && \
-	touch /tmp/fake.apk && \
+	echo "fake apk" > /tmp/fake.apk && \
 	chown 1001:0 /tmp/fake.apk && \
 	chmod u+wrx,g+wrx,o+wrx /tmp/fake.apk 
 
